@@ -1,4 +1,4 @@
-#Short Version of instructions -
+#Short Version of instructions - 
 This version is intended for experienced ELK administrators. See the Full Version below for additional details and a full walkthrough.
 First, clone AMI with ports 23456, 5601 open. 
 Then:
