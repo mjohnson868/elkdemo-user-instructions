@@ -1,6 +1,7 @@
-Short Version of instructions -
+#Short Version of instructions -
 This version is intended for experienced ELK administrators. See the Full version for a link to additional details and a full walkthrough.
-First, clone AMI with ports 23456, 5601 open. Then:
+First, clone AMI with ports 23456, 5601 open. 
+Then:
 1. After AMI is cloned, go to https://<EC2_Instance_Public_DNS>
 2. Create a Chainkit user account or login with existing
 3. The Kibana dashboard is at https://<EC2_Instance_Public_DNS>:5601
@@ -12,8 +13,8 @@ First, clone AMI with ports 23456, 5601 open. Then:
 
 
 
-Full Version of instructions - 
-For the full version of the text for the walkthrough with all the steps elaborated in detail, go to https://github.com/chainkit/elk-demo-instructions/logstash-AMI-walkthrough
+#Full Version of instructions - 
+For the full version of the text for the walkthrough with all the steps elaborated in detail, go to https://github.com/chainkit/elkdemo-user-instructions/blob/master/logstash-AMI-walkthrough
 
 This full version of the overview will walk you through the use of the Chainkit ELK demo.
 Topic 0: Overview
