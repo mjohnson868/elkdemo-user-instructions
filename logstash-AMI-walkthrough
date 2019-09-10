@@ -1,8 +1,8 @@
 #Short Version of instructions -
-This version is intended for experienced ELK administrators. See the Full version for a link to additional details and a full walkthrough.
+This version is intended for experienced ELK administrators. See the Full Version below for additional details and a full walkthrough.
 First, clone AMI with ports 23456, 5601 open. 
 Then:
-1. After AMI is cloned, go to https://<EC2_Instance_Public_DNS>
+1. After AMI is cloned, go to http://<EC2_Instance_Public_DNS>
 2. Create a Chainkit user account or login with existing
 3. The Kibana dashboard is at https://<EC2_Instance_Public_DNS>:5601
 4. As needed, use your Chainkit account to login.
@@ -12,10 +12,7 @@ Then:
 8. Wait 5 minutes, see that the dashboard shows the simulated message now shows False for Verified. 
 
 
-
 #Full Version of instructions - 
-For the full version of the text for the walkthrough with all the steps elaborated in detail, go to https://github.com/chainkit/elkdemo-user-instructions/blob/master/logstash-AMI-walkthrough
-
 This full version of the overview will walk you through the use of the Chainkit ELK demo.
 Topic 0: Overview
 
@@ -27,7 +24,7 @@ PencilDATA has created this AMI to show how you can harden logs on the ELK stack
 5. See that the log entry shows as tampered with by Chainkit in the Kibana dashboard
 
 Topic 1: Getting Started
-Clone AMI with ports 23456, 5601 open
+First, clone AMI with ports 23456, 5601 open.
 
 Once you have started the service, make a note of the IP assigned by Amazon. You will need this throughout these instructions. We will often refer to your assigned IP as “<EC2_Instance_Public_DNS>”.
 
@@ -61,7 +58,7 @@ Now you will make a log entry that you can see in your Kibana dashboard
 5. In the Terminal or Command Prompt, type, “nc <EC2_Instance_Public_DNS> 23456” then hit Return. Be sure to use the actual IP of your AMI in place of <EC2_Instance_Public_DNS>. (Note: Do not type the quotation marks.)
 6. Type the log entry message you want to send to the ELK service such as “admin jdoe authenticated to Server100 on 2019_09_09”. Then press the “Return” key to get to a new line on the terminal.
 7. Press “Control-C” to terminate the nc command and send the log entry message to your Amazon instance (Note: Do not type the quotation marks).
-8. You’ve now successfully written to the ELK log. To see your log entry on your Amazon instance, open up the Kibana dashboard by going to Port 5601 on the IP for your AMI Image. e.g. http://<EC2_Instance_Public_DNS>:5601
+8. You’ve now successfully written to the ELK log. To see your log entry on your Amazon instance, open up the Kibana dashboard by going to Port 5601 on the IP for your AMI Image. e.g. https://<EC2_Instance_Public_DNS>:5601
 9. Find the row, probably the first entry, where the message field matches the text you entered prior using the nc command. 
 10. Notice the “Verified” column likely just has a “-“ in it. By default, the Chainkit service is verifying the log records every 5 minutes. Wait a few minutes, and press the blue “Refresh” button on the Kibana dashboard. 
 11. Now that 5 minutes has passed, and you’ve hit the “Refresh” button, you will see that the “Verified” column has changed to “True”
@@ -71,7 +68,7 @@ Congrats! You’ve used the Chainkit service on your ELK stack to show that the 
 Topic 4: Modify the log entry
 Now we will simulate a malicious actor changing the logs on the source server, and show how the Chainkit service detects the change as it is pushed to the ELK stack. With proper instrumentation, this would allow you to send an alert to your Security team showing them that someone has tampered with logs, and allow them to quickly respond to the event. This will greatly reduce the time it takes to detect an attack.
 
-1. In the Kibana dashboard (again, http://<EC2_Instance_Public_DNS>:5601), expand the message row containing the message you pushed from nc. You do this by clicking on the arrow/twisty to the left of the row.
+1. In the Kibana dashboard (again, https://<EC2_Instance_Public_DNS>:5601), expand the message row containing the message you pushed from nc. You do this by clicking on the arrow/twisty to the left of the row.
 2. You will need to note/copy two text fields. Note/copy the text corresponding to the _index value. Note/copy the text corresponding to the _id value
 3. In order to modify the log entry, we will show you how to change the log entry in Kibana.
 4. Go to Kibana dev tools by clicking on the third icon down in the Kibana dashboard
@@ -98,8 +95,5 @@ With this walkthrough you have successfully spun up an ELK stack on Amazon, crea
 This effectively simulates what a malicious actor would do as they modify logs to cover their tracks and make forensics harder.
 
 Feel free to explore further by adding more log entries such as by using the “nc” command, and tampering with the entry in the Kibana dashboard. Additionally, see our github repository (https://github.com/chainkit) and also our website (https://chainkit.com/) for more detailed information.
-
-
-
 
 
